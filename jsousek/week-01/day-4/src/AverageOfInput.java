@@ -18,6 +18,14 @@ public class AverageOfInput {
         Scanner fifthInt = new Scanner(System.in);
         int nr5 = fifthInt.nextInt();
 
+        double subTotal = nr1+nr2+nr3+nr4+nr5;
+
+        double product = subTotal/5;
+
+        System.out.println(product);
+
+
+
 
     }
 }
