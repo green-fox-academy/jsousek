@@ -14,6 +14,6 @@ public class ParametricAvgLoopsPractise {
 
         }
          System.out.println(zero);
-        System.out.println((zero/5);
+         System.out.println(zero/5);
     }
 }
