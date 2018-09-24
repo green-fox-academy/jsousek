@@ -21,6 +21,7 @@ public class Factorio {
     }
 
     public static int factorial (int F){
+
         int factorial = 1;
 
         for (int i = 1; i <= F ; i++) {
