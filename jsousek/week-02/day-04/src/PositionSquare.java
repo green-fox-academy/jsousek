@@ -4,39 +4,31 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class FourRectangles {
+public class PositionSquare {
 
     public static void mainDraw(Graphics graphics){
-        // draw four different size and color rectangles.
+        // create a square drawing function that takes 2 parameters:
+        // the x and y coordinates of the square's top left corner
+        // and draws a 50x50 square from that point.
+        // draw 3 squares with that function.
         // avoid code duplication.
-        for (int i = 0; i <4 ; i++) {
-            randomRect(graphics);
 
+
+        for (int i = 0; i <3 ; i++) {
+            graphics.drawRect(randomCoord(graphics),randomCoord(graphics), 50,50);
         }
 
-
     }
-    public static void randomRect (Graphics graphics){
-         //for more random rectangles add another random G a B in RGB
+    public static int randomCoord (Graphics graphics){
+        int CoorD = (int) Math.floor(Math.random()*270);
+        return CoorD;
 
-        double R = Math.floor(Math.random()*255);
-        int RInt = (int) R;
-        Color randomColor =new Color(RInt,245,(int) Math.floor(
-        Math.random()*250));
-        graphics.setColor(randomColor);
-
-        double XD = Math.floor(Math.random()*WIDTH);
-        int X = (int) XD;
-
-        double YD = Math.floor(Math.random()*HEIGHT);
-        int Y = (int) YD;
-
-        graphics.drawRect((int) Math.floor(Math.random()*32),(int) Math.floor(Math.random()*343),50,15);
     }
 
     //    Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 343;
+
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
         jFrame.setSize(new Dimension(WIDTH, HEIGHT));
