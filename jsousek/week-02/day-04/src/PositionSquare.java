@@ -14,7 +14,7 @@ public class PositionSquare {
         // avoid code duplication.
 
 
-        for (int i = 0; i <3 ; i++) {
+        for (int i = 0; i <4 ; i++) {
             graphics.drawRect(randomCoord(graphics),randomCoord(graphics), 50,50);
         }
 
