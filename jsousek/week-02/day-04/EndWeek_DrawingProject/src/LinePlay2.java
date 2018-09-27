@@ -1,49 +1,52 @@
-/*import javax.swing.*;
+import javax.swing.*;
 
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class SandBox {
+public class LinePlay2 {
     public static void mainDraw(Graphics graphics) {
-        //for (int i = 0; i <=440 ; i+=20) {
-        int i =20;
+
+        graphics.setColor(Color.green);
+        drawLinesBottomLeft(graphics, 12, 20);
+        graphics.setColor(Color.magenta);
+        drawLinesUpperRight(graphics, 12, 20);
 
 
-            DrawHorizontalLine(220-i/2, i, 220+i/2, i,graphics);
-
-        //}
-
-
-
-    }
-
-    public static void DrawHorizontalLine (int x1, int y1, int x2, int y2 ,Graphics graphics){
-        graphics.drawLine(x1,x2, y1,y2);
-    }
-    public static void DrawTopToDownRight (int a1, int b1, int a2, int b2 ,Graphics graphics){
-        graphics.drawLine(a1,a2,b1,b2);
-    }
-    public static void DrawDownToToTopRight (int c1, int d1, int c2, int d2 ,Graphics graphics){
-        graphics.drawLine(c1,c2,d1,d2);
     }
 
     public static void drawLinesBottomLeft(Graphics graphics, int nrOfLines, int distanceBetweenLines) {
-        int canvasHeight = 286/divideCanvas;
+        int canvasHeight = 286;
         for (int i = 0; i <= nrOfLines; i++) {
 
             int x1 = 0;
-            int y0 = (int)(canvasHeight - (nrOfLines * distanceBetweenLines/divideCanvas));
-            int y1 = (int)(y0 + (i * distanceBetweenLines/divideCanvas));
-            int x2 = (int)(distanceBetweenLines/divideCanvas * i);
+            int y0 = canvasHeight - (nrOfLines * distanceBetweenLines);
+            int y1 = y0 + (i * distanceBetweenLines);
+            int x2 = distanceBetweenLines * i;
             int y2 = canvasHeight;
 
             graphics.drawLine(x1, y1, x2, y2);
         }
 
+    }
+    public static void drawLinesUpperRight(Graphics graphics, int nrOfLines, int distanceBetweenLines) {
+        int canvasWidth = 297;
+        for (int i = 0; i <= nrOfLines; i++) {
+
+            int y1 = 0;
+            int x0 = canvasWidth - (nrOfLines * distanceBetweenLines);
+            int x1 = x0 + (i * distanceBetweenLines);
+            int y2 = distanceBetweenLines * i;
+            int x2 = canvasWidth;
+
+            graphics.drawLine(x1, y1, x2, y2);
+        }
+
+    }
+
     // Don't touch the code below
-    static int WIDTH = 440;
-    static int HEIGHT = 440;
+    static int WIDTH = 320;
+    static int HEIGHT = 343;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
@@ -62,4 +65,3 @@ public class SandBox {
         }
     }
 }
-*/

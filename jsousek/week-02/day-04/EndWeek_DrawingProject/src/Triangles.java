@@ -5,6 +5,7 @@ import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Triangles {
+
     public static void mainDraw(Graphics graphics) {
         for (int i = 0; i <=440 ; i+=20) {
 
@@ -15,7 +16,9 @@ public class Triangles {
         for (int i = 0; i <=440 ; i+=20) {
 
 
-            DrawDownToToTopRight( , ,,);
+            DrawToTopRight(i,i,WIDTH, graphics);
+
+            //DrawDownToToTopRight( , ,,);
         }
 
 
@@ -25,11 +28,14 @@ public class Triangles {
     public static void DrawHorizontalLine (int x1, int y1, int x2, int y2 ,Graphics graphics){
         graphics.drawLine(x1, y1, x2, y2);
     }
-    public static void DrawTopToDownRight (int a1, int b1, double a2, double b2 ,Graphics graphics){
-        graphics.drawLine(a1, b1,  (int)a2, (int)b2);
+    public static void DrawToTopRight( double b1, double a2, double b2 ,Graphics graphics){
+
+        b1 *= Math.cbrt(b1);
+
+        graphics.drawLine((int)b1/2, (int)b1,  (int)a2, (int)b2);
     }
-    public static void DrawDownToToTopRight (double c1, double d1, int c2, int d2 ,Graphics graphics){
-        graphics.drawLine((int)c1, (int)d1,  c2, d2);
+    public static void DrawDownToT (double c1, double d1, int c2, int d2 ,Graphics graphics){
+
     }
 
     // Don't touch the code below
