@@ -10,13 +10,13 @@ public class Triangles {
         for (int i = 0; i <=440 ; i+=20) {
 
 
-            DrawHorizontalLine(220-i/2, i, 220+i/2, i,graphics);
+           // DrawHorizontalLine(220-i/Math.cbrt(3), i, 220+i ,i,graphics);
 
         }
         for (int i = 0; i <=440 ; i+=20) {
 
 
-            DrawToTopRight(i,i,WIDTH, graphics);
+           // DrawToTopRight(i,i,WIDTH, graphics);
 
             //DrawDownToToTopRight( , ,,);
         }
@@ -26,7 +26,7 @@ public class Triangles {
     }
 
     public static void DrawHorizontalLine (int x1, int y1, int x2, int y2 ,Graphics graphics){
-        graphics.drawLine(x1, y1, x2, y2);
+        graphics.drawLine(x1, (int)y1, (int)x2, y2);
     }
     public static void DrawToTopRight( double b1, double a2, double b2 ,Graphics graphics){
 
