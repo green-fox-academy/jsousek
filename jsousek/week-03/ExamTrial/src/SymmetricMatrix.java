@@ -28,6 +28,9 @@ public class SymmetricMatrix {
     }
 
     public static boolean isSymmetric (ArrayList<ArrayList<Integer>> inputMatrix){
+        for(int i = 0; i < inputMatrix.size(); i++){
+            for(int j = 0; j < inputMatrix.get(i).size(); j++){
+
 
     }
 }
