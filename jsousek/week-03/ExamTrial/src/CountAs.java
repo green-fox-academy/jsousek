@@ -1,16 +1,21 @@
 import java.util.Scanner;
 
 public class CountAs {
+
     static Scanner newScan = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { //execution of function ad print
+
+        int finInt = letterCount(newScan.next());
+
+        System.out.println(finInt);
 
 
 
     }
-    public static int letterCount ( String inputString ) {
+    public static int letterCount ( String inputString ) {//function body
 
-        inputString = newScan.next();
+
         int countLetter = 0;
 
         for (int i = 0; i <inputString.length() ; i++) {
