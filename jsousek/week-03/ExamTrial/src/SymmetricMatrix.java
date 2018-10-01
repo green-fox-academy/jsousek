@@ -34,14 +34,24 @@ public class SymmetricMatrix {
         System.out.println(isSymmetric(symmetricMatrix)); // should print out true
     }
 
-    public static boolean isSymmetric (ArrayList<ArrayList<Integer>> inputMatrix){
+    public static boolean isSymmetric (ArrayList<ArrayList<Integer>> inputMatrix){// function should return boolean
 
-        int subtotalInColumn =0;
-        int subtotalOfRow =0;
+        int subtotalInColumn = 0;
+        int subtotalOfRow = 0;
+        boolean output;
 
         for(int i = 0; i < inputMatrix.size(); i++){
-            for(int j = 0; j < inputMatrix.get(i).size(); j++){
+            subtotalInColumn = subtotalInColumn + inputMatrix.get()[i][0];
+
     }
+        for (int i = 0; i <inputMatrix.size() ; i++) {
+            subtotalOfRow = subtotalOfRow + inputMatrix.get();
+
+        }
+        if (subtotalInColumn == subtotalOfRow){
+            output = true;
+        }
+        return output;
 
 
 
