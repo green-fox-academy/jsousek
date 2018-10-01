@@ -18,6 +18,13 @@ public class SymmetricMatrix {
         // 6 5 7
         // 1 2 1
 
+        ArrayList<ArrayList<Integer>> nonSymmetricMatrix = new ArrayList<ArrayList<Integer>>();
+
+        nonSymmetricMatrix.add(new ArrayList<Integer> (Arrays.asList(7,7,7)));
+        nonSymmetricMatrix.add(new ArrayList<Integer> (Arrays.asList(6,5,7)));
+        nonSymmetricMatrix.add(new ArrayList<Integer> (Arrays.asList(1,2,1)));
+
+
         ArrayList<ArrayList<Integer>> symmetricMatrix = new ArrayList<ArrayList<Integer>>();
 
         symmetricMatrix.add(new ArrayList<Integer> (Arrays.asList(1, 0, 1)));
@@ -28,8 +35,14 @@ public class SymmetricMatrix {
     }
 
     public static boolean isSymmetric (ArrayList<ArrayList<Integer>> inputMatrix){
+
+        int subtotalInColumn =0;
+        int subtotalOfRow =0;
+
         for(int i = 0; i < inputMatrix.size(); i++){
             for(int j = 0; j < inputMatrix.get(i).size(); j++){
+    }
+
 
 
     }
