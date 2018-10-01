@@ -32,7 +32,8 @@ public class SymmetricMatrix {
         symmetricMatrix.add(new ArrayList<Integer> (Arrays.asList(1, 2, 5)));
 
         System.out.println(isSymmetric(symmetricMatrix)); // should print out true
-    }
+
+    }//end of main
 
     public static boolean isSymmetric (ArrayList<ArrayList<Integer>> inputMatrix){// function should return boolean
 
@@ -43,17 +44,16 @@ public class SymmetricMatrix {
         for(int i = 0; i < inputMatrix.size(); i++){
             subtotalInColumn = subtotalInColumn + inputMatrix.get()[i][0];
 
-    }
+        }
         for (int i = 0; i <inputMatrix.size() ; i++) {
-            subtotalOfRow = subtotalOfRow + inputMatrix.get();
+            subtotalOfRow = subtotalOfRow + inputMatrix.get([0][i]);
 
         }
         if (subtotalInColumn == subtotalOfRow){
             output = true;
         }
+
         return output;
 
-
-
-    }
+    } //end of function
 }
