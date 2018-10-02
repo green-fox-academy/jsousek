@@ -42,7 +42,7 @@ public class CopyFile {
 
         Path newPath = Paths.get(newFileName);
 
-        Files.copy( oldPath,newPath );
+        Files.copy( oldPath,newPath );//important
 
         List<String> origList =Files.readAllLines(oldPath);
         List<String> copiedList = Files.readAllLines(newPath);
