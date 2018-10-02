@@ -14,13 +14,9 @@ import java.util.List;
 public class Logs {
     public static void main(String[] args) {
 
-            Path filePath = Paths.get("my-file.txt");
+        Path filePath = Paths.get("my-file.txt");
 
-        try {
-            List<String> origList =Files.readAllLines(filePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         try {
             List<String> origList = Files.readAllLines(filePath);
@@ -30,35 +26,46 @@ public class Logs {
             e.printStackTrace();
         }
 
-    }
-    //public static List  iPList (Path filePath)  throws IOException {
-       // return
 
-   // }
+        try {
+            iPList(filePath);
+            System.out.println(iPList(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    public static double ratio (Path filePath) throws IOException{
+    } //end of main
+
+    public static List iPList (Path filePath) throws IOException {
         filePath = Paths.get("my-file.txt");
-        List<String> origList =Files.readAllLines(filePath);
+        List<String> origList = Files.readAllLines(filePath);
+        List <String> iPList =new ArrayList<>();
+        for (String s:origList) {
+
+            iPList.add(s.substring(27,38));
+
+        }
+
+        return iPList;
+
+    }
+
+    public static double ratio(Path filePath) throws IOException {
+        filePath = Paths.get("my-file.txt");
+        List<String> origList = Files.readAllLines(filePath);
+
         int postC = 0, getC = 0;
 
-        for (String s: origList
-             ) { if (s.substring(42,44) == "POST"){
-                     postC++; }
-                 else if (s.substring(42,44) == "GET") {
-                     getC++;
-        }
+        for (String s : origList) {
+            if (s.substring(41, 45).equals("POST")) {
+                postC++;
+            } else if (s.substring(41, 44).equals("GET")) {
+                getC++;
+            }
 
-        }
+        }//end fore
+        // int nrPost = Collections.frequency(origList,"POST");
+        return postC / (double) getC;
 
-
-
-
-
-
-        //int nrGet = Collections.frequency(, "GET");
-       // int nrPost = Collections.frequency(origList,"POST");
-
-
-        return postC/(double)getC;
-   }
-}
+    }//end of fnc2
+} //end of class
