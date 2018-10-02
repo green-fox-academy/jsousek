@@ -21,7 +21,10 @@ public class PrintEachLine {
             while (fileScan.hasNext()){
                 System.out.println(fileScan.nextLine());
             }
-        } catch (FileNotFoundException e) {
+            fileScan.close();
+        }
+
+        catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("File cannot be opened");
         }

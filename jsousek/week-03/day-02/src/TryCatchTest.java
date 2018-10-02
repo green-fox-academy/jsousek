@@ -13,7 +13,7 @@ public class TryCatchTest {
 
             System.out.println(product);
 
-        } catch (Exception e) {
+        } catch (Exception e) { //should be IllegalArgumentException, but then it doesnt print Cant Div..
             e.printStackTrace();
 
             System.out.println("Cant divide with 0!!");
