@@ -1,8 +1,12 @@
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLOutput;
+import java.util.List;
 import java.util.Scanner;
+
 
 public class CopyFile {
 
@@ -10,25 +14,45 @@ public class CopyFile {
     static Scanner inputScan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Path oldPath = Paths.get("input.txt");
+        System.out.println("Insert file name you want to copy, with filetype");
+        String origFileName = inputScan.next();
+
 
         System.out.println("Insert new file name");
-        String fileName = inputScan.next()+".txt";
+        String newFileName = inputScan.next()+".txt";
 
         try {
-            copyCat(oldPath,fileName );
+            boolean CopySuc = copyCat(origFileName, newFileName);
+
+            if (CopySuc){
+
+                System.out.println("Copy was successful");
+            }
+            else System.out.println("Copy Error");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println();
+
 
     }
-    public static boolean copyCat (Path oldPath, String fileName) throws IOException {
-        Path newPath = Paths.get(fileName);
-        Files.copy(oldPath,newPath );
+    public static boolean copyCat (String origFileName, String newFileName) throws IOException {
+
+        Path oldPath = Paths.get(origFileName);
+
+        Path newPath = Paths.get(newFileName);
+
+        Files.copy( oldPath,newPath );
+
+        List<String> origList =Files.readAllLines(oldPath);
+        List<String> copiedList = Files.readAllLines(newPath);
 
 
-        return (oldPath == newPath);
+        boolean copySuccess = (origList.equals(copiedList));
+        return copySuccess;
+
+
+
 
     }
 }
