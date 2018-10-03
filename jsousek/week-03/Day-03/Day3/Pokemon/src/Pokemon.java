@@ -13,3 +13,4 @@ public class Pokemon {
         return this.effectiveAgainst.equals(anotherPokemon.type);
     }
 }
+

@@ -15,7 +15,30 @@ public class Main {
 
         // Which pokemon should Ash use?
 
-        System.out.print("I choose you, ");
+        Pokemon strongPokemon = null;
+
+
+        for (int i = 0; i < pokemonOfAsh.size(); i++) {
+            if (pokemonOfAsh.get(i).isEffectiveAgainst(wildPokemon)) {
+                strongPokemon = pokemonOfAsh.get(i);
+            }
+        }
+
+        try {
+            System.out.println("I choose you, " + strongPokemon.name);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            System.out.println("Theres no good pokemon");
+        }
+
+        try {
+            System.out.println("I choose "+ goodPokemon(wildPokemon).name);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            System.out.println("Theres no good pokemon");
+        }
+
+        //System.out.println("I chose you, "+ goodPokemon(wildPokemon));
     }
 
     private static List<Pokemon> initializePokemons() {
@@ -29,4 +52,21 @@ public class Main {
 
         return pokemon;
     }
+
+    public static Pokemon goodPokemon(Pokemon somePokemon) {
+        Pokemon inFncPokemon = null;
+        for (Pokemon poke : initializePokemons()) {
+            if (poke.isEffectiveAgainst(somePokemon)) {
+                inFncPokemon = poke;
+                //return inFncPokemon;
+            }
+
+        }
+        if (inFncPokemon == null){
+            throw new IllegalArgumentException();
+        }
+
+        return inFncPokemon;
+    }
 }
+
