@@ -53,19 +53,23 @@ public class Logs {
     public static double ratio(Path filePath) throws IOException {
         filePath = Paths.get("my-file.txt");
         List<String> origList = Files.readAllLines(filePath);
-
         int postC = 0, getC = 0;
-
         for (String s : origList) {
             if (s.substring(41, 45).equals("POST")) {
                 postC++;
             } else if (s.substring(41, 44).equals("GET")) {
                 getC++;
             }
+            //if (s.contains
+            // line.contains
+            if (s.contains("GET")){
 
-        }//end fore
-        // int nrPost = Collections.frequency(origList,"POST");
-        return postC / (double) getC;
+            }
+
+
+
+        }
+        return getC / (double) postC;
 
     }//end of fnc2
 } //end of class
