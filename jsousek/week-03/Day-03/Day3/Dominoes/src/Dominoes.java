@@ -14,7 +14,7 @@ public class Dominoes {
         for (int i = 0; i <dominoes.size() ; i++) {
             for (int j = i+1; j <dominoes.size() ; j++) {
                 if (dominoes.get(i).getValues()[1] == dominoes.get(j).getValues()[0] ){
-                    Collections.swap(dominoes,i+1, i);
+                    Collections.swap(dominoes,i+1, j);
                 }
 
 
