@@ -38,18 +38,7 @@ public class SierpinskyCarpet {
 
     }
 
-    public static void DrawHorizontalLine (int x1, int y1, int x2, int y2 ,Graphics graphics){
-        graphics.drawLine(x1, (int)y1, (int)x2, y2);
-    }
-    public static void DrawToTopRight( double b1, double a2, double b2 ,Graphics graphics){
-
-        b1 *= Math.cbrt(b1);
-
-        graphics.drawLine((int)b1/2, (int)b1,  (int)a2, (int)b2);
-    }
-    public static void DrawDownToT (double c1, double d1, int c2, int d2 ,Graphics graphics){
-
-    }
+    
 
     // Don't touch the code below
     static int WIDTH = 600;
