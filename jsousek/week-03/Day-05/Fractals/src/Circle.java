@@ -6,15 +6,33 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Circle {
 
+    public static int randomColor(){
+        int r =(int)(Math.random()*255);
+        return r;
+    }
 
-    public static void mainDraw(Graphics graphics) {
-
+    public static void drawCircle(int x, int y,  int size, Graphics graphics){
+        int radF = size/3;
+        int cX = x - (radF/2);
+        int cY = y - (radF/2);
+        graphics.drawOval(cX, cY, size, size);
+        drawCircle();
+        drawCircle();
+        drawCircle();
 
     }
 
+
+
+    public static void mainDraw(Graphics graphics) {
+
+        drawCircle(300,300, 600, graphics);
+
+        }
+
     // Don't touch the code below
-    static int WIDTH = 440;
-    static int HEIGHT = 440;
+    static int WIDTH = 600;
+    static int HEIGHT = 600;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");

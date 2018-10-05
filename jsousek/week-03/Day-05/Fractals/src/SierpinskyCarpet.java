@@ -38,7 +38,7 @@ public class SierpinskyCarpet {
 
     }
 
-    
+
 
     // Don't touch the code below
     static int WIDTH = 600;
