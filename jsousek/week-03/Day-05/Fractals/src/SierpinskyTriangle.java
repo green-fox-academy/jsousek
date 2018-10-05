@@ -5,35 +5,26 @@ import javax.swing.*;
 
         import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
+
+
 public class SierpinskyTriangle {
+    static int SIZE = 600;
+    public static void drawPolygon(Graphics graphics){
+
+
+    }
 
     public static void mainDraw(Graphics graphics) {
-        for (int i = 0; i <=440 ; i+=20) {
+        int triaHeight = (int)Math.round(SIZE*Math.sqrt(3)/2);
+        Point p1 = new Point(0, triaHeight);
+        Point p2 = new Point(SIZE/2, 0);
+        Point p3 = new Point(SIZE, triaHeight);
+        Polygon p = new Polygon();
+        p.addPoint(p1.x, p1.y);
+        p.addPoint(p2.x, p2.y);
+        p.addPoint(p3.x, p3.y);
+        graphics.drawPolygon(p);
 
-
-            // DrawHorizontalLine(220-i/Math.cbrt(3), i, 220+i ,i,graphics);
-
-        }
-        for (int i = 0; i <=440 ; i+=20) {
-
-
-            // DrawToTopRight(i,i,WIDTH, graphics);
-
-            //DrawDownToToTopRight( , ,,);
-        }
-        Point point;
-    }
-
-    public static void DrawHorizontalLine (int x1, int y1, int x2, int y2 ,Graphics graphics){
-        graphics.drawLine(x1, (int)y1, (int)x2, y2);
-    }
-    public static void DrawToTopRight( double b1, double a2, double b2 ,Graphics graphics){
-
-        b1 *= Math.cbrt(b1);
-
-        graphics.drawLine((int)b1/2, (int)b1,  (int)a2, (int)b2);
-    }
-    public static void DrawDownToT (double c1, double d1, int c2, int d2 ,Graphics graphics){
 
 
     }

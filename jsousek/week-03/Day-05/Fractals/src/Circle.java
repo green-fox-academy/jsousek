@@ -16,9 +16,9 @@ public class Circle {
         int cX = x - (radF/2);
         int cY = y - (radF/2);
         graphics.drawOval(cX, cY, size, size);
-        drawCircle();
-        drawCircle();
-        drawCircle();
+       // drawCircle();
+       // drawCircle();
+      //  drawCircle();
 
     }
 
