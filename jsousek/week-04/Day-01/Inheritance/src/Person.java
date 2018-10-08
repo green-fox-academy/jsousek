@@ -54,6 +54,7 @@ public class Person {
             sponsor.hire();
         }
 
+
         for(Person person : people) {
             person.introduce();
             person.getGoal();
