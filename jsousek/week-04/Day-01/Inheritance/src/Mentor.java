@@ -5,7 +5,7 @@ public class Mentor extends  Person {
         System.out.println("Educate brilliant junior software developers.");
     }
     public void introduce (){
-        System.out.println("Hi, I am "+ this.name + ", a " + this.age +" year old " + this.gender + level +" mentor");
+        System.out.println("Hi, I am "+ this.name + ", a " + this.age +" year old " + this.gender +" "+ level +" mentor");
     }
     public Mentor(String name, int age, String gender, String level){
         super(name, age, gender);

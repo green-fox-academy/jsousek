@@ -12,7 +12,7 @@ public class Student extends Person {
         System.out.println("Hi, I am " + super.name + ", a " + super.age +" year old " + super.gender +
                 " from " + previousOrganization + " who skipped " +skippedDays+ " from that course already");
     }
-    public int numberOfDays (int numberOfDays){
+    public int skipDays (int numberOfDays){
         numberOfDays = numberOfDays + this.skippedDays;
         return numberOfDays;
     }
@@ -21,10 +21,10 @@ public class Student extends Person {
         previousOrganization = "school of life";
         skippedDays = 0;
     }
-    public Student (String name, int age, String gender, String previousOrganization, int skippedDays){
+    public Student ( String name, int age, String gender, String previousOrganization){
         super(name, age, gender);
         this.previousOrganization =previousOrganization;
-        this.skippedDays = skippedDays;
+        this.skippedDays = 0;
 
     }
 }
