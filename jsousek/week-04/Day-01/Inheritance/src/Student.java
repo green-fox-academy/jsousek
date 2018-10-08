@@ -9,8 +9,8 @@ public class Student extends Person {
     }
 
     public void introduce (){
-        System.out.println("Hi, I am " + name + ", a " + age +" year old " + gender +
-                "from" + previousOrganization + "who skipped" +skippedDays+ "from that course already");
+        System.out.println("Hi, I am " + super.name + ", a " + super.age +" year old " + super.gender +
+                " from " + previousOrganization + " who skipped " +skippedDays+ " from that course already");
     }
     public int numberOfDays (int numberOfDays){
         numberOfDays = numberOfDays + this.skippedDays;
@@ -23,6 +23,8 @@ public class Student extends Person {
     }
     public Student (String name, int age, String gender, String previousOrganization, int skippedDays){
         super(name, age, gender);
+        this.previousOrganization =previousOrganization;
+        this.skippedDays = skippedDays;
 
     }
 }

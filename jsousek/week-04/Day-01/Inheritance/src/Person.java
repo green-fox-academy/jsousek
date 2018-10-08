@@ -27,6 +27,7 @@ public class Person {
     public static void main(String[] args) {
         Person johny = new Person();
         Student marry = new Student("marr", 18, "male", "vsz", 1);
+        marry.introduce();
 
 
     }
