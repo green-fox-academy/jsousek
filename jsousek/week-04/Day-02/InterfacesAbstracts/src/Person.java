@@ -23,6 +23,7 @@ public class Person implements Cloneable {
         age = 30;
         gender = "female";
     }
+    @Override
     public Object clone()  throws CloneNotSupportedException {
         return (Student)super.clone();
     }
