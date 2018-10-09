@@ -1,17 +1,27 @@
-/*
-public class Fleet
-{
-    private List<Thing> Things;
 
-    public Fleet()
-    {
-        Things = new List<Thing>();
+
+import java.util.ArrayList;
+
+/**
+ * Created by aze on 2017.03.29..
+ */
+public class Fleet {
+    private ArrayList<Things> things;
+
+    public Fleet() {
+        things = new ArrayList<>();
     }
 
-    public void Add(Thing thing)
-    {
-        Things.Add(thing);
+    public void add(Things thing) {
+        things.add(thing);
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for(int i = 0; i < things.size(); i++) {
+            result += (i+1) + ". " + things.get(i) + "\n";
+        }
+        return result;
     }
 }
-}
-*/

@@ -23,6 +23,7 @@ public class Domino implements Comparable<Domino> {
     public int compareTo (Domino a){
         return Integer.compare(getValues()[0], a.getValues()[0]);
     }*/
+   //function above works the same and is shorter
 
     @Override
     public int compareTo(Domino o) {

@@ -1,17 +1,17 @@
-/*public class Thing
-{
-    private string Name;
-    private bool Completed;
+public class Things {
+    private String name;
+    private boolean completed;
 
-    public Thing(string name)
-    {
-        this.Name = name;
+    public Things(String name) {
+        this.name = name;
     }
 
-    public void Complete()
-    {
-        this.Completed = true;
+    public void complete() {
+        this.completed = true;
+    }
+
+    @Override
+    public String toString() {
+        return (completed ? "[x] " : "[ ] ") + name;
     }
 }
-}
-*/
