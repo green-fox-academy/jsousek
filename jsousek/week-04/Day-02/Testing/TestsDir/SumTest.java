@@ -32,5 +32,5 @@ public class SumTest {
 }
 @Test
     public void getSumTestNull(){
-    assertNull(null, temp.getSum(testList));} //??
+    assertEquals(null, temp.getSum(testList));} //??
     }
