@@ -1,6 +1,5 @@
 public class F16 extends  Fighter {
 
-
     public F16 (){
         super.mAXAmmo = 8;
         super.dmg = 30;
@@ -8,9 +7,4 @@ public class F16 extends  Fighter {
         super.type = "F16";
         super.isPriority = false;
     }
-
-
-
-
-
 }

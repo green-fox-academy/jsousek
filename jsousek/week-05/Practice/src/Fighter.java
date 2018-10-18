@@ -9,7 +9,7 @@ public class Fighter {
         return fighterAmmo * dmg;
     }
     public int refill (int fromStorage){
-        fighterAmmo = mAXAmmo;
+        this.fighterAmmo = mAXAmmo;
         return fromStorage - mAXAmmo;
     }
 
