@@ -10,7 +10,7 @@ public class Fighter {
     }
     public int refill (int fromStorage){
         this.fighterAmmo = mAXAmmo;
-        return fromStorage - mAXAmmo;
+        return fromStorage - fighterAmmo;
     }
 
     public String getType (){
