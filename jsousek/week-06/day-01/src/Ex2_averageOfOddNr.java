@@ -10,7 +10,7 @@ public class Ex2_averageOfOddNr {
         List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14));
 
 
-        OptionalDouble sumOfList = numbers.stream().filter(n -> n % 2 != 0).
+        OptionalDouble averageOfList = numbers.stream().filter(n -> n % 2 != 0).
                 mapToDouble(n -> n).
                 average();
 
@@ -21,8 +21,8 @@ public class Ex2_averageOfOddNr {
             }
         }
 
-        System.out.println(sumOfList);
-        System.out.println(sumUsingForE/numbers.size());
+        System.out.println(averageOfList);
+        System.out.println(sumUsingForE/6);
 
     }
 }

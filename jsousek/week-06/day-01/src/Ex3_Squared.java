@@ -12,7 +12,7 @@ public class Ex3_Squared {
         Function <Integer, Integer> square = n -> n * n;
 
         numbers = numbers.stream().filter(n -> n > 0).
-                map(square).
+                map(n -> n*n).
                 collect(toList());
 
         for (int i : numbers) {
