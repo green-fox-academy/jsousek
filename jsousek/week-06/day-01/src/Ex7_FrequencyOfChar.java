@@ -11,11 +11,12 @@ public class Ex7_FrequencyOfChar {
         Map<Character, Long> charFrequency = testString.chars().
                 mapToObj(c -> (char) c).
                 collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        System.out.println(charFrequency);
 
-        Set<Map.Entry<Character,Long>> hashSet = charFrequency.entrySet();
+        Set<Map.Entry<Character, Long>> hashSet = charFrequency.entrySet();
 
-        for(Map.Entry entry:hashSet ) {
-            System.out.println("Key="+entry.getKey()+", Value="+entry.getValue());
+        for (Map.Entry entry : hashSet) {
+            System.out.println("Key=" + entry.getKey() + ", Value=" + entry.getValue());
         }
     }
 }
