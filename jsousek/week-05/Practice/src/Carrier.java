@@ -8,12 +8,10 @@ public class Carrier {
     int initialHP;
     ArrayList<Fighter> fightersOfCarrier;
 
-
     public Carrier (int initialHP, int initialAmmo){
         this.initialHP = initialHP;
         this.initialAmmo = abs(initialAmmo);
         this.fightersOfCarrier = new ArrayList<>();
-
     }
 
     public void addFighter(Fighter someF){
@@ -38,22 +36,23 @@ public class Carrier {
             }
         }*/
 
-        if (initialAmmo - ammoNeeded <= 0) {
-            System.out.println("no Ammo");
-        }
-        else if (ammoNeeded > initialAmmo) {
+         if (ammoNeeded > initialAmmo) {
             for (int i = 0; i < fightersOfCarrier.size(); i++) {
                if (fightersOfCarrier.get(i).isPriority == true && initialAmmo > 0) {
-                    fightersOfCarrier.get(i).refill(initialAmmo);
+                    initialAmmo = fightersOfCarrier.get(i).refill(initialAmmo);
                 }
+                else if (fightersOfCarrier.get(i).isPriority == false && initialAmmo > 0) {
+                   initialAmmo = fightersOfCarrier.get(i).refill(initialAmmo);
             }
         }
-       // else for (Fighter f : fightersOfCarrier) {
-            //f.refill(ammoNeeded);
-      //  }
-        for (int i = 0; i < fightersOfCarrier.size(); i++) {
-            initialAmmo -= fightersOfCarrier.get(i).mAXAmmo;
+
+
         }
+        else {
+               for (Fighter f : fightersOfCarrier)
+               f.refill(initialAmmo);
+       }
+
     }
 
     public void carrierStatus (){
@@ -61,7 +60,6 @@ public class Carrier {
         System.out.println("Our health is "+initialHP);
         for (Fighter f : fightersOfCarrier) {
             System.out.println(f.getStatus());
-
         }
     }
     public void fight (){
@@ -78,9 +76,5 @@ public class Carrier {
             System.out.println("Enemy carrier sunk !");
         }
         System.out.println( "Enemy health is: " + enemy.initialHP);
-
-
     }
-
-
 }
