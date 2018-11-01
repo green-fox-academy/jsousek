@@ -3,19 +3,20 @@ import sun.nio.cs.ext.MacCentralEurope;
 import java.time.*;
 
 
-public class OneTask {
-    int taskNr;
+public class OneTask extends Ided{
     boolean isDone;
     String taskDecryption;
     ZonedDateTime timeOfCreation;
-    private final int TASK_ID;
-    int id = TASK_ID++;
+    long id ;
+
+    public OneTask(){
+
+    }
 
 
 
-    public OneTask( int taskNr, boolean isDone, String taskDecryption){
-        this.id=id;
-        this.taskNr = taskNr;
+    public OneTask( boolean isDone, String taskDecryption){
+        this.id= getId();
         this.isDone = isDone;
         this.taskDecryption =taskDecryption;
         this.timeOfCreation = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("CET"));
@@ -30,15 +31,17 @@ public class OneTask {
         return  s = d.toString();
     }
 
-
-
     @Override
     public  String toString(){
         String s = "";
         if (this.isDone == false){
-        return s = taskNr + " -  [ ] " + taskDecryption +"\n";}
-        else return s = taskNr + " -  [x] " + taskDecryption +"\n";
+            return s = id  + " -  [ ] " + taskDecryption + " "+timeOfCreation+"\n"; }
+        else return s = id  + " -  [x] " + taskDecryption + " "+ timeOfCreation + "\n";
 
 
     }
+
+
+
+
 }

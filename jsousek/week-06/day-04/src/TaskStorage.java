@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskStorage {
-    List<OneTask> storage;
+    List<OneTask> storage = new ArrayList<>();
 
     public TaskStorage(){
-        this.storage = new ArrayList<>();
+
     }
 
     public void addTask (OneTask task){

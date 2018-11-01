@@ -6,8 +6,9 @@ public class Main {
         if (args[0].equals("-l")) {
         }
         if (args[0].equals("-a")) {
-            AddToFile addTask = new AddToFile();
-            addTask.w
+            AddToFile add = new AddToFile();
+            add.addTaskToStorage(args);
+            add.writeToFile();
         }
         if (args[0].equals("-r")) {
         }

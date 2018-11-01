@@ -5,34 +5,55 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class AddToFile {
     private String location = "data.txt";
     private Path path = Paths.get(location);
-    TaskStorage t = new TaskStorage();
+
 
     public AddToFile(){
 
     }
 
-    private void addTaskToStorage (String[] args){
-        OneTask task = new OneTask(Integer.parseInt(args[1]) ,false, args[2]);
-        this.t.addTask(task);
+    public void addTaskToStorage (String[] args){
+        TaskStorage inFncStorage = new TaskStorage();
+
+
+        OneTask task = new OneTask(false, args[1]);
+        inFncStorage.addTask(task);
     }
 
-    private void writeToFile(String[] args){
-        addTaskToStorage(args);
+    public void writeToFile(){
+        TaskStorage inFncStorage = new TaskStorage();
+        List<String> placeholder = new ArrayList<>();
+        for (OneTask o : inFncStorage.storage){
+            placeholder.add(o.toString());
+        }
+
 
         try {
+            Files.write(path, placeholder);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /*try {
             BufferedWriter writeList = new BufferedWriter(new FileWriter(location));
-            for(OneTask o : t.storage){
+            for(OneTask o : inFncStorage.storage){
                 writeList.write(o.toString());
             }
             writeList.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 
-}
+
+    }
+
+
