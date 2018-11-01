@@ -1,5 +1,9 @@
 public class WelcomeScreen {
 
+    public WelcomeScreen(){
+        printListOfArgsForUser();
+    }
+
     public void printListOfArgsForUser (){
         System.out.println("Command Line Todo application\n" +
                 "=============================\n" +

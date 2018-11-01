@@ -4,14 +4,16 @@ import java.time.*;
 
 
 public class OneTask {
-    int id;
     int taskNr;
     boolean isDone;
     String taskDecryption;
     ZonedDateTime timeOfCreation;
+    private final int TASK_ID;
+    int id = TASK_ID++;
 
 
-    public OneTask( int id, int taskNr, boolean isDone, String taskDecryption){
+
+    public OneTask( int taskNr, boolean isDone, String taskDecryption){
         this.id=id;
         this.taskNr = taskNr;
         this.isDone = isDone;
@@ -19,13 +21,23 @@ public class OneTask {
         this.timeOfCreation = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("CET"));
     }
 
+    private String timeToFinish (OneTask task){
+        String s = "";
+        Duration d = null;
+        if (task.isDone == true) {
+            d = Duration.between(task.timeOfCreation, ZonedDateTime.now());
+        }
+        return  s = d.toString();
+    }
+
+
 
     @Override
     public  String toString(){
-         String s = "";
+        String s = "";
         if (this.isDone == false){
-        return s = }
-        else return s =
+        return s = taskNr + " -  [ ] " + taskDecryption +"\n";}
+        else return s = taskNr + " -  [x] " + taskDecryption +"\n";
 
 
     }
