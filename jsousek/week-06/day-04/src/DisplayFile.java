@@ -3,7 +3,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,13 +31,11 @@ public class DisplayFile extends OneTask {
         }
         return displayList;
     }
-    @Override
+   /* @Override
     public  String toString(){
         String s = "";
         if (this.isDone == false){
             return s = id + " -  [ ] " + taskDecryption +"\n";}
         else return s = id + " -  [x] " + taskDecryption +"\n";
-
-
-    }
+    }*/
 }

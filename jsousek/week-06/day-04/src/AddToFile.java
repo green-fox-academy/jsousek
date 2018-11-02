@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -19,32 +20,35 @@ public class AddToFile {
 
     }
 
-    public void addTaskToStorage (String[] args){
+   /* public void addTaskToStorage (String[] args, List<OneTask> listA){
         TaskStorage inFncStorage = new TaskStorage();
-
-
+        listA = inFncStorage.storage;
         OneTask task = new OneTask(false, args[1]);
-        inFncStorage.addTask(task);
-    }
+        listA.add(task);
+        inFncStorage.serviceDisplay();
+    }*/
 
-    public void writeToFile(){
-        TaskStorage inFncStorage = new TaskStorage();
+    public void writeToFile (List<OneTask> listWrite){
         List<String> placeholder = new ArrayList<>();
-        for (OneTask o : inFncStorage.storage){
-            placeholder.add(o.toString());
+        for (int i = 0; i <listWrite.size() ; i++) {
+            placeholder.add(listWrite.get(i).toString());
         }
-
-
+        StringBuffer buffer = new StringBuffer();
+        String toWrite = "";
+        for(String s : placeholder){
+            buffer.append(s);
+        }
+        toWrite = buffer.toString();
         try {
-            Files.write(path, placeholder);
+            Files.write(path, toWrite.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         /*try {
             BufferedWriter writeList = new BufferedWriter(new FileWriter(location));
-            for(OneTask o : inFncStorage.storage){
-                writeList.write(o.toString());
+            for(String s : placeholder){
+                writeList.write(s);
             }
             writeList.close();
         } catch (IOException e) {

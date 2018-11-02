@@ -1,9 +1,10 @@
 import sun.nio.cs.ext.MacCentralEurope;
 
+import java.io.Serializable;
 import java.time.*;
 
 
-public class OneTask extends Ided{
+public class OneTask extends Ided implements Serializable {
     boolean isDone;
     String taskDecryption;
     ZonedDateTime timeOfCreation;
