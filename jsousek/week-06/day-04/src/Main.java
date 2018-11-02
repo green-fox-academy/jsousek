@@ -17,7 +17,7 @@ public class Main {
         else if (args[0].equals("-a")) {
 
 
-            TASK_STORAGE.addTask(args);
+            STATIC_LIST.add(new OneTask(false, args[1]));
             TASK_STORAGE.writeStream();
 
             STATIC_LIST = TASK_STORAGE.TaskStorageTOList(TASK_STORAGE);

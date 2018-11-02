@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskStorage {
-    List<OneTask> storage;
+    List<OneTask> storage = new ArrayList<>();
 
     public TaskStorage(){
 
@@ -26,8 +26,9 @@ public class TaskStorage {
             stream.close();
             fileOut.close();
         }
-        catch (IOException e) {e.printStackTrace();}
-
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String loadStream (String fileName){
@@ -40,10 +41,8 @@ public class TaskStorage {
             fileIn.close();
         }
         catch (IOException e) {e.printStackTrace(); }
-        catch (ClassNotFoundException e ){e.printStackTrace();}
+        catch (ClassNotFoundException e ) {e.printStackTrace(); }
         return s;
-
-
     }
 
 
