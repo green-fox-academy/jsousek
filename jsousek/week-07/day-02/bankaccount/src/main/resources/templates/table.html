@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(table)}">
+        <table style="border: black">
+            <tr>
+                <th>index</th>
+                <th>Animal name</th>
+                <th>balance</th>
+                <th>animal species</th>
+            </tr>
+            <tr th:each="animal:${table}">
+                <td th:text="${animalStat.count}"></td>
+                <td th:text="${animal.getName()}"></td>
+                <td th:text="${animal.getBalance()}"></td>
+                <td th:text="${animal.getAnimalType()}"></td>
+                <td th:text="${animal.getIfsKing()}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+body{
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border-collapse: collapse;
+
+    padding: 20px;
+    border: 2px solid gray;
+    text-align: left;
+}
