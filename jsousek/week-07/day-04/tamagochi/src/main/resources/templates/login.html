@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" th:href="@{style.css}" />
+</head>
+<body>
+<h2>login page</h2>
+  <form action="/login" method="post">
+    Name of Your Possum: <input type="text" id="name" name="name">
+    Favourite food: <input type="text" id="food" >
+    Favourite drink: <input type="text" id="drink">
+    <input type="submit">
+
+  </form>
+
+</body>
+</html>

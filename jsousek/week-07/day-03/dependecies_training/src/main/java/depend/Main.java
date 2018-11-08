@@ -25,8 +25,7 @@ public class Main  implements CommandLineRunner{
 
 
 
-    @Autowired
-    Printer pony;
+
 
    // @Autowired
     // PinkColor pink1;
