@@ -6,12 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PossumList extends Possum{
+public class PossumList {
     List<Possum> allPossums = new ArrayList<>();
 
-    public void addPossum (Possum possum){
+    public void addPossum (Possum possum) {
         allPossums.add(possum);
     }
+
+    public Possum getCertainPossum (String nameInput){
+         Possum toReturn = allPossums.stream().filter(Possum -> nameInput.equals(Possum.getName()))
+                .findAny().
+                        orElse(allPossums.get(0));
+         return toReturn;
+    }
+
 
 
 
