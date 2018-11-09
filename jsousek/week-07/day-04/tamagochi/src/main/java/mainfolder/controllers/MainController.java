@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
+    Possum defaultPossum;
 
-    @Autowired
     PossumList plist;
 
-    public MainController(){
-        Possum defaultPossum = Possum.builder().name("Ms O'Possum").drink("IPA").food("tartar steak").build();
+    @Autowired
+    public MainController(PossumList serviceClass){
+        this.plist = serviceClass;
+        this.defaultPossum = Possum.builder().name("Ms O'Possum").drink("IPA").food("tartar steak").build();
         plist.addPossum(defaultPossum);
     }
 

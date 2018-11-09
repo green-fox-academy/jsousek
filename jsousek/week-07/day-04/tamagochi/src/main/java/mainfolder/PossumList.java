@@ -14,7 +14,7 @@ public class PossumList {
     }
 
     public Possum getCertainPossum (String nameInput){
-         Possum toReturn = allPossums.stream().filter(Possum -> nameInput.equals(Possum.getName()))
+         Possum toReturn = allPossums.stream().filter(possum -> nameInput.equals(possum.getName()))
                 .findAny().
                         orElse(allPossums.get(0));
          return toReturn;
