@@ -1,0 +1,17 @@
+.text {
+    font-family: Lato;
+}
+.mainfield {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-style: solid;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    font-family: Lato;
+}
+input {
+    margin-bottom: 5px;
+}

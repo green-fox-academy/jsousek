@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage</title>
-    <link rel="stylesheet" th:href="@{style.css}" />
+    <link rel="stylesheet" th:href="@{styles.css}" />
 </head>
-<body>
+<body class="text">
+<div class="mainfield">
     <h2>Angry Possum app</h2>
+        <img class="imageArea" src="Possum.jpg">
         <a href="information">Information</a>
         <a href="/login"> Login</a>
-        <img  src="Possum.jpg">
-        <p class="decryption" th:text="'This is an Angry Possum '+${name}+'. Be nice to her and feed her'"> </p>
-    <h3 class="listHead">Known Tricks</h3>
-        <ul class="list"></ul>
-            <li></li>
 
+        <p class="decryption" th:text="'This is an Angry Possum '+${name}+'. She drinks '+${drink}+' and besides yours ankles, she also eats '+${food}+' Be nice to her and feed her'"> </p>
+    <h3 class="listHead">Known Tricks</h3>
+     <ul th:each="trick : ${tricks}">
+        <li th:text="${trick}"></li>
+     </ul>
+</div>
 </body>
 </html>

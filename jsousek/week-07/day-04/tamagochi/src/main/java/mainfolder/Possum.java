@@ -14,7 +14,7 @@ import java.util.List;
 public  class Possum {
 
 
-    List<String> knownTricks;
+    List<String> knownTricks = new ArrayList<>();
     String name;
     String food;
     String drink;

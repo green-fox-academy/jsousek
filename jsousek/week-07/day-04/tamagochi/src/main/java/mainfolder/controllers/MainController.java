@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
+
 @Controller
 public class MainController {
     Possum defaultPossum;
@@ -18,17 +20,28 @@ public class MainController {
     @Autowired
     public MainController(PossumList serviceClass){
         this.plist = serviceClass;
-        this.defaultPossum = Possum.builder().name("Ms O'Possum").drink("IPA").food("tartar steak").build();
+        this.defaultPossum = Possum.builder()
+                .name("Ms O'Possum")
+                .drink("IPA")
+                .food("tartar steak")
+                .knownTricks(Arrays.asList("Biting", "Playing Dead"))
+                .build();
         plist.addPossum(defaultPossum);
+
     }
 
-
     @GetMapping("")
-    public String homePage( @RequestParam (value="name", required = false )String name, Model model){
+    public String homePage( @RequestParam (value="name", required = false )String name, String drink, Model model){
         if(name != null){
             model.addAttribute("name",plist.getCertainPossum(name).getName());
+            model.addAttribute("drink", plist.getCertainPossum(name).getDrink());
+            model.addAttribute("food", plist.getCertainPossum(name).getFood());
+
         }
         else model.addAttribute("name", plist.getCertainPossum("Ms O'Possum").getName());
+             model.addAttribute("drink", plist.getCertainPossum("Ms O'Possum").getDrink());
+             model.addAttribute("food", plist.getCertainPossum("Ms O'Possum").getFood());
+             model.addAttribute("tricks", defaultPossum.getKnownTricks());
         return "home";
     }
 
