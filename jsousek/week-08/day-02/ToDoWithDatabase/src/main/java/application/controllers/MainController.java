@@ -29,7 +29,7 @@ public class MainController {
 
     List<ToDo> todos = new ArrayList<>();
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String homepage(Model model){
         model.addAttribute("todos", serviceClass.findAll());
         return "home";
@@ -45,16 +45,16 @@ public class MainController {
     public String addOne (){
         return "add";
     }
-    @PostMapping("/home")
-        public String homepageUpdated (@RequestParam(value ="todo") String todo){
+    @PostMapping("/add")
+        public String homepageUpdated (@RequestParam(value ="todo" , required = false) String todo){
         serviceClass.save(ToDo.builder().title(todo).urgent(false).done(false).build());
-        return "redirect:/"+  "?name="+ todo;
+        return "redirect:/todo/";
     }
 
     @PostMapping("/delete{id}")
     public String deleteOne (@PathVariable long id){
         serviceClass.deleteById(id);
-        return "home";
+        return "redirect:/todo/";
     }
 
 
