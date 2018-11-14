@@ -21,11 +21,11 @@ public class Main implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        ToDo example = data.save(ToDo.builder().title("learn sql").urgent(true).done(false)
+        /*ToDo example = data.save(ToDo.builder().title("learn sql").urgent(true).done(false)
                 .build());
         ToDo example2 = data.save(ToDo.builder().title("learn interfaces").urgent(true).done(false)
                 .build());
         ToDo example3 = data.save(ToDo.builder().title("walk the fish").urgent(false).done(true)
-                .build());
+                .build());*/
     }
 }

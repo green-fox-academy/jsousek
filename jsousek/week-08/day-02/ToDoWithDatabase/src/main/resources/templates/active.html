@@ -6,9 +6,8 @@
     <link rel="stylesheet" th:href="@{style.css}" />
 </head>
 <body>
-<h3>Table of ToDoes</h3>
+<h3>Table of Active ToDoes</h3>
 <a href="add">add new</a>
-<a href="active">show active</a>
 <table class="center">
     <tr>
         <th>Id</th>
@@ -18,7 +17,7 @@
         <th>Delete</th>
         <th>Update</th>
     </tr>
-    <tr th:each="todo : ${todos}">
+    <tr th:each="todo : ${todond}">
         <td th:text="${todo.id}"></td>
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.urgent}"></td>
