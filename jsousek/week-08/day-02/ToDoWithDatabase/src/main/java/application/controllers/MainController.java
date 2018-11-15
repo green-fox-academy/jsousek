@@ -28,6 +28,7 @@ public class MainController {
 
     Query q = new Query();
 
+
     @GetMapping("/")
     public String homepage(Model model){
         model.addAttribute("todos", serviceClass.findAll());
@@ -36,8 +37,8 @@ public class MainController {
 
     @GetMapping("/active")
     public String notDone(Model model){
-        model.addAttribute("todond",act.listActive());
-        return "active";
+        model.addAttribute("todos",act.listActive());
+        return "home";
     }
 
     @GetMapping("/add")
@@ -83,6 +84,18 @@ public class MainController {
         serviceClass.save(toEdit);
         return"redirect:/todo/";
     }
+
+   @GetMapping("/author")
+    public String selectAuthor(){
+        return "author";
+   }
+
+   @PostMapping("/author")
+    public String filterAfterSection(@RequestParam(value="author") String author, Model model){
+        model.addAttribute("todos", serviceClass.findByUserUsername(author));
+
+        return "home";
+   }
 
 
 }
