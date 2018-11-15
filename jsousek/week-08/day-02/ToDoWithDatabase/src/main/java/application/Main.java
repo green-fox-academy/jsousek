@@ -26,6 +26,6 @@ public class Main implements CommandLineRunner {
         ToDo example2 = data.save(ToDo.builder().title("learn interfaces").urgent(true).done(false)
                 .build());
         ToDo example3 = data.save(ToDo.builder().title("walk the fish").urgent(false).done(true)
-                .build());*/
+                .build());*/;
     }
 }

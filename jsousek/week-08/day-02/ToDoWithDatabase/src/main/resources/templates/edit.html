@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+<h3>Edit a ToDo</h3>
+<form th:action="'/todo/'+${todo.id}+'/edit2'" method="post">
+    <input type="text" th:text="${todo.title}" name="title" id="title">
+    <input type="radio" name="urgent" id="urgent">is urgent
+    <input type="radio" name="done" id="done">is done
+    <input type="submit">Submit
+
+</form>

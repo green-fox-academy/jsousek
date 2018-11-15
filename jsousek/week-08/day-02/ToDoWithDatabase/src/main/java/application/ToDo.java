@@ -1,27 +1,35 @@
 package application;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
-    @Data
+@Getter
+@Setter
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
 
     @Entity
+    @Table(name = "todos")
+
     public class ToDo {
+        @Setter(AccessLevel.NONE)
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         long id;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date utilTimestamp;
+
         String title;
         boolean urgent;
         boolean done;
+
+        @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+        User user;
+
+
     }
 

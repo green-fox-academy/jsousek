@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage</title>
-    <link rel="stylesheet" th:href="@{style.css}" />
+    <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
 <h3>Table of ToDoes</h3>
@@ -13,6 +13,7 @@
     <tr>
         <th>Id</th>
         <th>To Do</th>
+        <th>By user</th>
         <th>Done</th>
         <th>Urgent</th>
         <th>Delete</th>
@@ -21,13 +22,20 @@
     <tr th:each="todo : ${todos}">
         <td th:text="${todo.id}"></td>
         <td th:text="${todo.title}"></td>
+        <td th:text="${todo.getUser().getUsername()}"></td>
         <td th:text="${todo.urgent}"></td>
         <td th:text="${todo.done}"></td>
         <td>
-            <form th:action="@{/delete/${todo.id}}" th:object="${todo}" method="post">
+            <form th:action="'/todo/delete/?id='+${todo.id}" th:object="${todo}" method="post">
                 <input type="hidden">
                 <button type="submit" onclick="return confirm('you sure?')">del</button>
             </form>
+        </td>
+        <td>
+            <form th:action="'/todo/'+${todo.id}+'/edit'" th:object="${todo}" method="post">
+                <button type="submit">Edit</button>
+            </form>
+
         </td>
     </tr>
 </table>

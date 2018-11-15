@@ -1,10 +1,12 @@
 body {
     background-color: blue;
+    font: 20px arial;
 }
 table, th, td {
 
     border-collapse: collapse;
     font: 20px arial;
+    background-color: gray;
 }
 th, td {
     padding: 20px;

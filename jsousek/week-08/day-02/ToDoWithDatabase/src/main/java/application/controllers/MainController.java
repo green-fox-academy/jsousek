@@ -1,8 +1,6 @@
 package application.controllers;
 
-import application.ActiveList;
-import application.ToDo;
-import application.ToDoInterface;
+import application.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,17 +15,18 @@ import java.util.List;
 public class MainController {
 
     ToDoInterface serviceClass;
+    UserInterface userService;
+
     @Autowired
-    public MainController (ToDoInterface serviceClass){
+    public MainController (ToDoInterface serviceClass, UserInterface userService){
         this.serviceClass = serviceClass;
+        this.userService = userService;
     }
 
     @Autowired
     ActiveList act;
 
     Query q = new Query();
-
-    List<ToDo> todos = new ArrayList<>();
 
     @GetMapping("/")
     public String homepage(Model model){
@@ -45,16 +44,44 @@ public class MainController {
     public String addOne (){
         return "add";
     }
+
     @PostMapping("/add")
-        public String homepageUpdated (@RequestParam(value ="todo" , required = false) String todo){
-        serviceClass.save(ToDo.builder().title(todo).urgent(false).done(false).build());
+        public String homepageUpdated (@RequestParam(value ="todo" , required = false) String todo,
+                                       @RequestParam(value="username" ,required = false) String user,
+                                       @RequestParam(value = "email" ,required = false) String userMail){
+        serviceClass.save(ToDo.builder()
+                .title(todo).
+                        user(User.builder()
+                                .username(user)
+                                .userEmail(userMail)
+                                .build())
+                .urgent(false)
+                .done(false)
+                .build());
         return "redirect:/todo/";
     }
 
-    @PostMapping("/delete{id}")
-    public String deleteOne (@PathVariable long id){
+    @PostMapping("/delete")
+    public String deleteOne (@RequestParam(value ="id") long id){
+       // long idNr = Long.parseLong(id);
         serviceClass.deleteById(id);
         return "redirect:/todo/";
+    }
+    @PostMapping("/{id}/edit")
+    public String editOne(@PathVariable (value="id") long id, Model model){
+        model.addAttribute("todo", serviceClass.findById(id).get());
+        return "edit";
+    }
+
+    @PostMapping("/{id}/edit2")
+    public String submitEdit(@PathVariable (value = "id")long id,
+                             String title, boolean urgent, boolean isDone){
+        ToDo toEdit = serviceClass.findById(id).get();
+        toEdit.setDone(isDone);
+        toEdit.setUrgent(urgent);
+        toEdit.setTitle(title);
+        serviceClass.save(toEdit);
+        return"redirect:/todo/";
     }
 
 
