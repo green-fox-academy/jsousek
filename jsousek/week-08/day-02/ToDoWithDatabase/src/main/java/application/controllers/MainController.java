@@ -37,7 +37,8 @@ public class MainController {
 
     @GetMapping("/active")
     public String notDone(Model model){
-        model.addAttribute("todos",act.listActive());
+        //model.addAttribute("todos",act.listActive());
+        model.addAttribute("todos",serviceClass.findByDoneIsTrue());
         return "home";
     }
 
@@ -76,7 +77,9 @@ public class MainController {
 
     @PostMapping("/{id}/edit2")
     public String submitEdit(@PathVariable (value = "id")long id,
-                             String title, boolean urgent, boolean isDone){
+                             @RequestParam(value = "title") String title,
+                             @RequestParam(value = "urgent", required = false, defaultValue = "false") boolean urgent,
+                             @RequestParam(value = "done", required = false, defaultValue = "false") boolean isDone){
         ToDo toEdit = serviceClass.findById(id).get();
         toEdit.setDone(isDone);
         toEdit.setUrgent(urgent);

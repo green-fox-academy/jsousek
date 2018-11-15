@@ -8,9 +8,9 @@
 <body>
 <h3>Edit a ToDo</h3>
 <form th:action="'/todo/'+${todo.id}+'/edit2'" method="post">
-    <input type="text" th:text="${todo.title}" name="title" id="title">
-    <input type="radio" name="urgent" id="urgent">is urgent
-    <input type="radio" name="done" id="done">is done
+    <input type="text" th:value="${todo.title}" name="title" >
+    <input type="checkbox" th:checked="${todo.isUrgent()}" name="urgent" >is urgent
+    <input type="checkbox" th:checked="${todo.isDone()}" name="done" >is done
     <input type="submit">Submit
 
 </form>
