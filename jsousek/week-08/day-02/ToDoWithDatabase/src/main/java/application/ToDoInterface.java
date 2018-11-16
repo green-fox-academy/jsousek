@@ -16,6 +16,8 @@ public interface ToDoInterface extends CrudRepository<ToDo, Long> {
 
     List<ToDo> findByDoneIsTrue();
 
+    List<ToDo> findAllByTitleContains(String search);
+
     /*@Query
             (value = "SELECT * FROM User  WHERE username = (String s)",
     nativeQuery = true)

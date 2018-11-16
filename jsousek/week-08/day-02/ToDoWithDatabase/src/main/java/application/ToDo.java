@@ -20,8 +20,8 @@ import java.util.Date;
         @GeneratedValue(strategy = GenerationType.AUTO)
         long id;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date utilTimestamp;
+        @Temporal(TemporalType.TIMESTAMP)
+        private java.util.Date utilTimestamp;
 
         String title;
         boolean urgent;

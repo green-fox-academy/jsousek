@@ -26,7 +26,8 @@ public class MainController {
     @Autowired
     ActiveList act;
 
-    Query q = new Query();
+    //Query q = new Query();
+
 
 
     @GetMapping("/")
@@ -97,6 +98,16 @@ public class MainController {
     public String filterAfterSection(@RequestParam(value="author") String author, Model model){
         model.addAttribute("todos", serviceClass.findByUserUsername(author));
 
+        return "home";
+   }
+
+   @PostMapping("/search")
+    public String searchToDo( @RequestParam (value="") String search, Model model){
+        if (search.isEmpty()){
+            return "redirect/";}
+        else {
+            model.addAttribute("todos", serviceClass.findAllByTitleContains(search));
+        }
         return "home";
    }
 

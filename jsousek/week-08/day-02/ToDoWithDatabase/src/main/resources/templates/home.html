@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>HomePage</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 </head>
 <body>
-<h3>Table of ToDoes</h3>
-<a href="add">add new</a>
-<a href="active">show active</a>
-<a href="author">filter by user</a>
-<table class="center">
+<main style="display: flex;
+      flex-direction: column;
+      align-items: center">
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand">To Do App</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="home">Home </a>
+                <a class="nav-item nav-link" href="active">Active</a>
+                <a class="nav-item nav-link" href="add">Add ToDo</a>
+                <a class="nav-item nav-link disabled" href="author">Filter by User</a>
+            </div>
+            <form class="form-inline" name="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search ToDo" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+<h3 style="margin-bottom: 50px; margin-top: 70px">Table of ToDoes</h3>
+
+<table align="center" class="table-striped table-hover" style="width: 800px; background: white">
     <tr>
         <th>Id</th>
         <th>To Do</th>
@@ -24,12 +42,24 @@
         <td th:text="${todo.id}"></td>
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.getUser().getUsername()}"></td>
-        <td th:text="${todo.urgent}"></td>
-        <td th:text="${todo.done}"></td>
+
+        <td th:if="${todo.done}">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>✔</td>
+
+        <td th:unless="${todo.done}"></td>
+
+        <td th:if="${todo.urgent}">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true">🔥</span></td>
+
+        <td th:unless="${todo.urgent}">
+        </td>
+
         <td>
             <form th:action="'/todo/delete/?id='+${todo.id}" th:object="${todo}" method="post">
                 <input type="hidden">
-                <button type="submit" onclick="return confirm('you sure?')">del</button>
+                <button type="submit" onclick="return confirm('you sure?')">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true">🗑</span>
+                </button>
             </form>
         </td>
         <td>
@@ -41,8 +71,7 @@
     </tr>
 </table>
 
-
-</ul>
-
+</main>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
