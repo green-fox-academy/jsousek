@@ -14,7 +14,7 @@ public interface ToDoInterface extends CrudRepository<ToDo, Long> {
 
     List<ToDo>findByUserUsername(String username);
 
-    List<ToDo> findByDoneIsTrue();
+    List<ToDo> findByDoneIsFalse();
 
     List<ToDo> findAllByTitleContains(String search);
 

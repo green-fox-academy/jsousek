@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage</title>
-    <link rel="stylesheet" th:href="@{style.css}" />
-</head>
-<form action="/todo/add" method="post">
-    add a new todo<input type="text" id="todo" name="todo">
-    name of Todo Author <input type="text" id="username" name="username">
-    user email <input type="email" id="userEmail" name="userEmail">
-    submit<input type="submit">
-</form>
+    <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
+<main style="display: flex;
+      flex-direction: column;
+      align-items: center">
+<form action="/todo/add" method="post">
+    <div>add a new todo<input type="text" id="todo" name="todo"></div>
 
+    <div>name of Todo Author <input type="text" id="username" name="username"></div>
+    <div>user email <input type="email" id="userEmail" name="userEmail"></div>
+    <div>submit<input type="submit"></div>
+</form>
+</main>
 </body>
 </html>

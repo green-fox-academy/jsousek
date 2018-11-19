@@ -9,13 +9,13 @@
 </head>
 <body>
 <h3>Edit a ToDo</h3>
-<form th:action="'/todo/'+${todo.id}+'/edit2'" method="post">
-    <input type="text" th:value="${todo.title}" name="title" >
-    <input type="checkbox" th:checked="${todo.isUrgent()}" name="urgent" >is urgent
-    <input type="checkbox" th:checked="${todo.isDone()}" name="done" >is done
-    <input type="submit">Submit
+    <form th:action="'/todo/'+${todo.id}+'/edit2'" method="post">
+        <input type="text" th:value="${todo.title}" name="title" >
+        <input type="checkbox" th:checked="${todo.isUrgent()}" name="urgent" >is urgent
+        <input type="checkbox" th:checked="${todo.isDone()}" name="done" >is done
+        <input type="submit">Submit
 
-</form>
+    </form>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>

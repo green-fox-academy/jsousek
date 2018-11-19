@@ -6,20 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.Query;
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 @RequestMapping("/todo")
 public class MainController {
 
-    ToDoInterface serviceClass;
+    ToDoInterface toDoInterface;
     UserInterface userService;
 
     @Autowired
     public MainController (ToDoInterface serviceClass, UserInterface userService){
-        this.serviceClass = serviceClass;
+        this.toDoInterface = serviceClass;
         this.userService = userService;
     }
 
@@ -32,14 +28,14 @@ public class MainController {
 
     @GetMapping("/")
     public String homepage(Model model){
-        model.addAttribute("todos", serviceClass.findAll());
+        model.addAttribute("todos", toDoInterface.findAll());
         return "home";
     }
 
     @GetMapping("/active")
     public String notDone(Model model){
         //model.addAttribute("todos",act.listActive());
-        model.addAttribute("todos",serviceClass.findByDoneIsTrue());
+        model.addAttribute("todos", toDoInterface.findByDoneIsFalse());
         return "home";
     }
 
@@ -49,10 +45,11 @@ public class MainController {
     }
 
     @PostMapping("/add")
-        public String homepageUpdated (@RequestParam(value ="todo" , required = false) String todo,
-                                       @RequestParam(value="username" ,required = false) String user,
-                                       @RequestParam(value = "email" ,required = false) String userMail){
-        serviceClass.save(ToDo.builder()
+        public String homepageUpdated(
+                @RequestParam(value ="todo" , required = false) String todo,
+                @RequestParam(value="username" ,required = false) String user,
+                @RequestParam(value = "email" ,required = false) String userMail){
+        toDoInterface.save(ToDo.builder()
                 .title(todo).
                         user(User.builder()
                                 .username(user)
@@ -67,12 +64,12 @@ public class MainController {
     @PostMapping("/delete")
     public String deleteOne (@RequestParam(value ="id") long id){
        // long idNr = Long.parseLong(id);
-        serviceClass.deleteById(id);
+        toDoInterface.deleteById(id);
         return "redirect:/todo/";
     }
     @PostMapping("/{id}/edit")
     public String editOne(@PathVariable (value="id") long id, Model model){
-        model.addAttribute("todo", serviceClass.findById(id).get());
+        model.addAttribute("todo", toDoInterface.findById(id).get());
         return "edit";
     }
 
@@ -81,12 +78,12 @@ public class MainController {
                              @RequestParam(value = "title") String title,
                              @RequestParam(value = "urgent", required = false, defaultValue = "false") boolean urgent,
                              @RequestParam(value = "done", required = false, defaultValue = "false") boolean isDone){
-        ToDo toEdit = serviceClass.findById(id).get();
+        ToDo toEdit = toDoInterface.findById(id).get();
         toEdit.setDone(isDone);
         toEdit.setUrgent(urgent);
         toEdit.setTitle(title);
-        serviceClass.save(toEdit);
-        return"redirect:/todo/";
+        toDoInterface.save(toEdit);
+        return"home";
     }
 
    @GetMapping("/author")
@@ -96,7 +93,7 @@ public class MainController {
 
    @PostMapping("/author")
     public String filterAfterSection(@RequestParam(value="author") String author, Model model){
-        model.addAttribute("todos", serviceClass.findByUserUsername(author));
+        model.addAttribute("todos", toDoInterface.findByUserUsername(author));
 
         return "home";
    }
@@ -106,7 +103,7 @@ public class MainController {
         if (search.isEmpty()){
             return "redirect/";}
         else {
-            model.addAttribute("todos", serviceClass.findAllByTitleContains(search));
+            model.addAttribute("todos", toDoInterface.findAllByTitleContains(search));
         }
         return "home";
    }
