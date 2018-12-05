@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "USER")
-public class User {
+public class UserModel {
     @Id @GeneratedValue
     @Column(name = "USER_ID")
     private long id;
