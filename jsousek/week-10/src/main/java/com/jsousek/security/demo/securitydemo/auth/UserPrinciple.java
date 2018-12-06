@@ -1,5 +1,6 @@
 package com.jsousek.security.demo.securitydemo.auth;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,6 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class UserPrinciple implements UserDetails {
+
     private UserModel user;
 
     public UserPrinciple(UserModel user) {
@@ -22,7 +24,7 @@ public class UserPrinciple implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.user.getPassword();
+        return user.getPassword();
     }
 
     @Override

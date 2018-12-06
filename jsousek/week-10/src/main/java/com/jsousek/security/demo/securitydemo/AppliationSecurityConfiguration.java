@@ -41,6 +41,9 @@ public class AppliationSecurityConfiguration extends WebSecurityConfigurerAdapte
                 .antMatchers("/", "/index", "/css/*", "/js/*").permitAll()
                 .anyRequest().authenticated()
                 .and()
+                .formLogin()
+                .and()
                 .httpBasic();
+
     }
 }
