@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>HomePage</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+<h3>Register new user</h3>
+<form action="submit" method="post">
+    <div>name<input type="text", name="login"></div>
+    <div>password<input type="password" name="password"> </div>
+    <div>submit<input type="submit"></div>
+
+</form>
+
+</body>
+</html>
