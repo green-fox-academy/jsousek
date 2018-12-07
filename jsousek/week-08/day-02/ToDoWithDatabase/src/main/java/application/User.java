@@ -28,8 +28,8 @@ public class User {
     String username;
     String userEmail;
 
-@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-@JoinColumn(name="user_id")
-List<ToDo> todosOfUsers;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    List<ToDo> todosOfUsers;
 
 }
