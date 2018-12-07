@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
     UserRepository userRepo;
+    HelperMethods helpers;
 
     @Autowired
-    public MainController(UserRepository userRepo) {
+    public MainController(UserRepository userRepo, HelperMethods helpers) {
         this.userRepo = userRepo;
+        this.helpers = helpers;
     }
-    private String hashPassword(String plainTextPassword){
-        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt(11));
-    }
+
 
     @GetMapping(value = "/index")
     public String homepage(){
@@ -43,7 +43,7 @@ public class MainController {
                            @RequestParam(value = "password") String password){
         UserModel toSave = new UserModel();
         toSave.setUsername(login);
-        toSave.setPassword(hashPassword(password));
+        toSave.setPassword(helpers.hashPassword(password));
         userRepo.save(toSave);
         return "redirect:/index";
     }
