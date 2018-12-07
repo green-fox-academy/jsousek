@@ -45,6 +45,6 @@ public class MainController {
         toSave.setUsername(login);
         toSave.setPassword(hashPassword(password));
         userRepo.save(toSave);
-        return "redirect:/home";
+        return "redirect:/index";
     }
 }
