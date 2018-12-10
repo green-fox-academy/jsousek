@@ -24,4 +24,6 @@ public class UserModel {
     private String username;
     @Column(name = "PASSWORD")
     private String password;
+    @Column(name = "EMAIL")
+    private String userEmail;
 }

@@ -28,7 +28,6 @@ public class AppliationSecurityConfiguration extends WebSecurityConfigurerAdapte
         provider.setPasswordEncoder(new BCryptPasswordEncoder(11));
         return provider;
     }
-
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
